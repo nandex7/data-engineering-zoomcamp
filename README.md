@@ -193,14 +193,23 @@ python3 ingest_data_homework.py \
   --url=${URL}
 ```
 Q3
--- 15767 
-select lpep_pickup_datetime::date,count(1) from green_tripdata  group by lpep_pickup_datetime::date;
 
+```bash
+-- 15767 
+select lpep_pickup_datetime::date,count(1) 
+from green_tripdata  
+group by lpep_pickup_datetime::date;
+```
 Q4
-select lpep_pickup_datetime::date,sum(trip_distance) from green_tripdata  group by lpep_pickup_datetime::d
- ate order by 2 desc;
-2019-09-26
+```bash
+--2019-09-26
+select lpep_pickup_datetime::date,sum(trip_distance) 
+from green_tripdata  
+group by lpep_pickup_datetime::date order by 2 desc;
+```
+
 Q5.
+```bash
 "Brooklyn" "Manhattan" "Queens"
 
 select lpep_pickup_datetime::date ,"Borough",sum(total_amount) total_amount
@@ -211,9 +220,10 @@ and "Borough" <> 'Unknown'
 group by lpep_pickup_datetime::date,"Borough"
 having sum(total_amount)>50000
 order by total_amount desc;
-
+```
 Q6.
 
+```bash
 Long Island City/Queens Plaza
 
 select lpep_pickup_datetime::date ,dz."Zone",sum(tip_amount) tip_amount
@@ -223,7 +233,7 @@ and  g."PULocationID" =pz."LocationID"
 and pz."Zone" = 'Astoria'
 group by lpep_pickup_datetime::date,dz."Zone"
 order by tip_amount desc;
-
+```
 
 Build the image
 
